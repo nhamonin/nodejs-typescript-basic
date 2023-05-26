@@ -1,10 +1,14 @@
 import fastify from 'fastify';
 
+import { todosRoutes } from './routes/todos.js';
+
 const server = fastify();
 
 server.get('/ping', async (request, reply) => {
   return 'pong\n';
 });
+
+server.register(todosRoutes, { prefix: '/todos' });
 
 server.listen({ port: 8080 }, (err, address) => {
   if (err) {
