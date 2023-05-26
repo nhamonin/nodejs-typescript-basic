@@ -1,0 +1,28 @@
+{
+  "name": "nodejs-typescript-basic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node app.js"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhamonin/nodejs-typescript-basic.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nhamonin/nodejs-typescript-basic/issues"
+  },
+  "homepage": "https://github.com/nhamonin/nodejs-typescript-basic#readme",
+  "dependencies": {
+    "fastify": "^4.17.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.4",
+    "typescript": "^5.0.4"
+  }
+}
