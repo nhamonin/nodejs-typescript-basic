@@ -18,13 +18,14 @@ export async function todosRoutes(
   options: RouteShorthandOptions
 ) {
   fastify.get('/', async (request: FastifyRequest, reply: FastifyReply) => {
-    return todos;
+    return { todos };
   });
 
   fastify.post('/', async (request, reply) => {
+    const { id, title } = request.body as { id: number; title: string };
     const todo: Todo = {
-      id: todos.length + 1,
-      title: 'New Todo',
+      id,
+      title,
     };
 
     todos.push(todo);
@@ -43,6 +44,7 @@ export async function todosRoutes(
       reply: FastifyReply
     ) => {
       const id = Number(request.params.id);
+      const { title } = request.body as { title: string };
       const todoIndex = todos.findIndex((todo) => todo.id === id);
 
       if (todoIndex === -1) {
@@ -52,7 +54,7 @@ export async function todosRoutes(
 
       const todo: Todo = {
         id,
-        title: 'Updated Todo',
+        title,
       };
 
       todos[todoIndex] = todo;
